@@ -1,10 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<style class="in-text" version="1.0" delimiter-precedes-et-al="never" et-al-min="3" et-al-use-first="1" name-as-sort-order="first" page-range-format="expanded" default-locale="fr-FR" xmlns="http://purl.org/net/xbiblio/csl">
-  <!-- This style was edited with the Visual CSL Editor (https://editor.citationstyles.org/visualEditor/) -->
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" delimiter-precedes-et-al="never" et-al-min="3" et-al-use-first="1" name-as-sort-order="first" page-range-format="expanded" default-locale="fr-FR">
   <info>
     <title>Mappemonde (Français)</title>
     <id>http://www.zotero.org/styles/mappemonde</id>
-    <link rel="self" href="http://www.zotero.org/styles/mappemonde"/>
+    <link href="http://www.zotero.org/styles/mappemonde" rel="self"/>
     <link rel="documentation" href="https://journals.openedition.org/mappemonde/660#tocfrom3n10"/>
     <author>
       <name>Julie Gravier</name>
@@ -15,9 +14,8 @@
     <category field="social_science"/>
     <issn>1769-7298</issn>
     <summary>Author-date style for Mappemonde journal - Style de la revue française Mappemonde (méthode auteur-date)</summary>
-    <updated>2025-09-21T13:13:02+00:00</updated>
+    <updated>2025-09-21T15:19:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/4.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 License</rights>
-    <link href="http://www.zotero.org/styles/mappemonde" rel="self"></link>
   </info>
   <locale xml:lang="fr">
     <terms>
@@ -239,6 +237,16 @@
       </else-if>
     </choose>
   </macro>
+  <macro name="collection">
+    <choose>
+      <if type="book chapter" match="any">
+        <text variable="collection-title" quotes="true" prefix=", coll. "/>
+      </if>
+      <else-if type="article-journal article article-magazine" match="any">
+        <text variable="collection-title" quotes="true" prefix=", dossier "/>
+      </else-if>
+    </choose>
+  </macro>
   <citation et-al-min="3" et-al-use-first="1" disambiguate-add-year-suffix="true" disambiguate-add-names="true" disambiguate-add-givenname="true" collapse="year">
     <sort>
       <key macro="author-cite"/>
@@ -270,6 +278,7 @@
           <text macro="publisher"/>
         </group>
       </group>
+      <text macro="collection"/>
       <text macro="pagination" prefix=", p. "/>
       <text macro="page-number"/>
       <text macro="ISBN"/>
