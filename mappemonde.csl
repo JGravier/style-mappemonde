@@ -14,7 +14,7 @@
     <category field="social_science"/>
     <issn>1769-7298</issn>
     <summary>Author-date style for Mappemonde journal - Style de la revue française Mappemonde (méthode auteur-date)</summary>
-    <updated>2025-09-21T15:19:00+00:00</updated>
+    <updated>2025-09-21T16:03:22+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/4.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 License</rights>
   </info>
   <locale xml:lang="fr">
@@ -30,12 +30,12 @@
     <choose>
       <if variable="author">
         <names variable="author" font-variant="normal">
-          <name font-style="normal" font-variant="small-caps" suffix="." and="text" delimiter-precedes-last="never" et-al-min="11" et-al-use-first="10" initialize-with="" name-as-sort-order="all" sort-separator=" "/>
+          <name font-style="normal" font-variant="small-caps" suffix="." delimiter-precedes-last="always" et-al-min="10" et-al-use-first="9" initialize-with="" name-as-sort-order="all" sort-separator=" "/>
         </names>
       </if>
       <else-if variable="editor">
         <names variable="editor">
-          <name font-style="normal" font-variant="small-caps" suffix="." and="text" delimiter-precedes-last="never" et-al-min="10" et-al-use-first="9" initialize-with="" name-as-sort-order="all" sort-separator=" "/>
+          <name font-style="normal" font-variant="small-caps" suffix="." delimiter-precedes-last="always" et-al-min="10" et-al-use-first="9" initialize-with="" name-as-sort-order="all" sort-separator=" "/>
           <label form="short" prefix=" (" suffix=".)"/>
         </names>
       </else-if>
@@ -45,13 +45,13 @@
     <choose>
       <if variable="author">
         <names variable="author">
-          <name form="short" font-style="normal" and="text" delimiter-precedes-last="never" name-as-sort-order="all"/>
+          <name form="short" font-style="normal" delimiter-precedes-last="always" name-as-sort-order="all"/>
           <et-al font-style="italic"/>
         </names>
       </if>
       <else-if variable="editor">
         <names variable="editor">
-          <name form="short" font-style="normal" and="text" delimiter-precedes-last="never" name-as-sort-order="all" sort-separator=" , "/>
+          <name form="short" font-style="normal" delimiter-precedes-last="always" name-as-sort-order="all" sort-separator=" , "/>
           <et-al font-style="italic"/>
         </names>
       </else-if>
@@ -59,7 +59,7 @@
   </macro>
   <macro name="editor">
     <names variable="editor" suffix=", ">
-      <name font-style="normal" font-variant="small-caps" suffix="." and="text" delimiter-precedes-last="never" initialize-with="" name-as-sort-order="all" sort-separator=" "/>
+      <name font-style="normal" font-variant="small-caps" suffix="." delimiter-precedes-last="never" initialize-with="" name-as-sort-order="all" sort-separator=" "/>
       <label form="short" prefix=" (" suffix=".)"/>
     </names>
   </macro>
@@ -74,7 +74,7 @@
           <text variable="container-title" font-style="italic" suffix=", "/>
         </group>
       </else-if>
-      <else-if type="thesis report" match="any">
+      <else-if type="thesis" match="any">
         <group>
           <text variable="title" text-case="capitalize-first" font-style="italic" suffix=". "/>
           <text variable="publisher-place" suffix=" : "/>
@@ -82,6 +82,14 @@
           <text variable="genre" suffix=", "/>
           <text variable="number-of-pages" suffix=" p"/>
           <text macro="online"/>
+        </group>
+      </else-if>
+      <else-if type="report" match="any">
+        <group>
+          <text variable="title" text-case="capitalize-first" font-style="italic" suffix=". "/>
+          <text variable="publisher-place" suffix=" : "/>
+          <text variable="publisher" suffix=", "/>
+          <text variable="genre"/>
         </group>
       </else-if>
       <else-if type="manuscript" match="any">
